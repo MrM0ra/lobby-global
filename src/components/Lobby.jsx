@@ -9,7 +9,7 @@ function getSessionId() {
   let id = sessionStorage.getItem(SESSION_STORAGE_KEY);
 
   if (!id) {
-    id = crypto.randomUUID();
+    id = generateUUID();
     sessionStorage.setItem(SESSION_STORAGE_KEY, id);
   }
 

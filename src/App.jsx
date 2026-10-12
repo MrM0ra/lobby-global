@@ -1,6 +1,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { supabase } from "./lib/supabase";
+import { generateUUID } from "./utils/uuid";
 import "./App.css";
 
 const SESSION_STORAGE_KEY = "global-lobby-session";
@@ -9,7 +10,7 @@ function getSessionId() {
   let id = sessionStorage.getItem(SESSION_STORAGE_KEY);
 
   if (!id) {
-    id = crypto.randomUUID();
+    id = generateUUID();
     sessionStorage.setItem(SESSION_STORAGE_KEY, id);
   }
 
